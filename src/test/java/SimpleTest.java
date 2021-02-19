@@ -15,7 +15,7 @@ public class SimpleTest {
     @Test
     @Tag("positive")
     @DisplayName("Positive test")
-    public void multiplication() {
+    void multiplication() {
         step("Сheck that multiplication is performed correctly", () -> {
             int c = a * b;
             assertEquals(10, c);
