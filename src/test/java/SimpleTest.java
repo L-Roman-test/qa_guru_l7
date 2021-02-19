@@ -3,7 +3,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.Matchers.is;
+
 
 public class SimpleTest {
     int a = 5;
@@ -19,5 +22,18 @@ public class SimpleTest {
         });
     }
 
+    @Test
+    @Tag("positive")
+    @DisplayName("Positive test with Hamcrest")
+    void successWithHamcrest() {
+        step("Assert that true is true", () ->
+                assertThat(true, is(true)));
+    }
 
+    @Test
+    @DisplayName("Negative test with Hamcrest")
+    void negativeWithHamcrest() {
+        step("Assert that true is false", () ->
+                assertThat(true, is(false)));
+    }
 }
